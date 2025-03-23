@@ -1,0 +1,149 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  background-color: #000080;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Retro button styles */
+.retro-button {
+  @apply font-retro px-6 py-3 text-white border-4 transition-all duration-200;
+  border-style: outset;
+  border-color: #DDDDDD #666666 #666666 #DDDDDD;
+  background: linear-gradient(to bottom, #FF00FF, #9D00FF);
+  box-shadow: 2px 2px 0px #000;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.retro-button:hover {
+  @apply transform scale-105;
+  box-shadow: 3px 3px 0px #000;
+}
+
+.retro-button:active {
+  border-style: inset;
+  border-color: #666666 #DDDDDD #DDDDDD #666666;
+  transform: translateY(2px);
+  box-shadow: 1px 1px 0px #000;
+}
+
+/* Retro box styles */
+.retro-box {
+  @apply border-4 p-5 bg-retro-navy;
+  border-style: ridge;
+  border-color: #DDDDDD #666666 #666666 #DDDDDD;
+  box-shadow: 4px 4px 0px #000;
+}
+
+/* Pixel border */
+.pixel-border {
+  position: relative;
+}
+
+.pixel-border::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 5px,
+    #FF00FF 5px,
+    #FF00FF 10px
+  );
+  z-index: -1;
+  animation: rainbow-border 3s linear infinite;
+}
+
+@keyframes rainbow-border {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+/* Marquee effect */
+.marquee-container {
+  overflow: hidden;
+  width: 100%;
+}
+
+.marquee-content {
+  white-space: nowrap;
+  animation: marquee 15s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Blink effect */
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: 
+    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* Star field */
+.star-field {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: #000080;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000080;
+  border-left: 1px solid #00FFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C0C0C0;
+  border: 2px outset #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #808080;
+}
